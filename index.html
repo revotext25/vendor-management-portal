@@ -25,8 +25,6 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
 h1,h2,h3,h4,h5 { font-family:'Plus Jakarta Sans',sans-serif; }
-
-/* NAV */
 .topbar { background:var(--brand); color:#fff; padding:0 24px; display:flex; align-items:center; height:60px; position:sticky; top:0; z-index:100; box-shadow:0 2px 8px rgba(0,0,0,.15); }
 .topbar .logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; letter-spacing:-.5px; }
 .topbar .logo span { color:#93c5fd; }
@@ -34,60 +32,55 @@ h1,h2,h3,h4,h5 { font-family:'Plus Jakarta Sans',sans-serif; }
 .topbar nav button { background:none; border:none; color:rgba(255,255,255,.7); font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; padding:8px 16px; border-radius:6px; cursor:pointer; transition:all .2s; }
 .topbar nav button:hover { background:rgba(255,255,255,.1); color:#fff; }
 .topbar nav button.active { background:rgba(255,255,255,.15); color:#fff; }
-.topbar .right { margin-left:auto; font-size:13px; color:rgba(255,255,255,.6); }
-
-/* LAYOUT */
+.topbar .right { margin-left:auto; display:flex; align-items:center; gap:12px; }
+.topbar .right .save-indicator { font-size:12px; color:rgba(255,255,255,.5); }
 .container { max-width:1400px; margin:0 auto; padding:24px; }
-.page { display:none; }
-.page.active { display:block; }
-
-/* STATS CARDS */
+.page { display:none; } .page.active { display:block; }
 .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; }
 .stat-card { background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); border-left:4px solid var(--brand); }
 .stat-card .label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); margin-bottom:4px; }
 .stat-card .value { font-family:'Plus Jakarta Sans',sans-serif; font-size:28px; font-weight:700; color:var(--brand); }
 .stat-card .sub { font-size:12px; color:var(--text-muted); margin-top:2px; }
-.stat-card.warn { border-left-color:var(--warn); }
-.stat-card.warn .value { color:var(--warn); }
-.stat-card.danger { border-left-color:var(--danger); }
-.stat-card.danger .value { color:var(--danger); }
-.stat-card.ok { border-left-color:var(--accent); }
-.stat-card.ok .value { color:var(--accent); }
-
-/* TOOLBAR */
+.stat-card.warn { border-left-color:var(--warn); } .stat-card.warn .value { color:var(--warn); }
+.stat-card.danger { border-left-color:var(--danger); } .stat-card.danger .value { color:var(--danger); }
+.stat-card.ok { border-left-color:var(--accent); } .stat-card.ok .value { color:var(--accent); }
 .toolbar { display:flex; gap:12px; align-items:center; margin-bottom:16px; flex-wrap:wrap; }
 .search-box { flex:1; min-width:240px; position:relative; }
-.search-box input { width:100%; padding:10px 14px 10px 38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--card); transition:border .2s; }
+.search-box input { width:100%; padding:10px 14px 10px 38px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--card); }
 .search-box input:focus { outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(34,78,153,.1); }
 .search-box::before { content:'🔍'; position:absolute; left:12px; top:50%; transform:translateY(-50%); font-size:14px; }
 select.filter { padding:10px 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; background:var(--card); cursor:pointer; }
 .btn { padding:10px 20px; border:none; border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; font-weight:600; cursor:pointer; transition:all .2s; display:inline-flex; align-items:center; gap:6px; }
-.btn-primary { background:var(--brand); color:#fff; }
-.btn-primary:hover { background:var(--brand-light); }
-.btn-success { background:var(--accent); color:#fff; }
-.btn-success:hover { background:#059669; }
-.btn-outline { background:var(--card); border:1px solid var(--border); color:var(--text); }
-.btn-outline:hover { border-color:var(--brand); color:var(--brand); }
+.btn-primary { background:var(--brand); color:#fff; } .btn-primary:hover { background:var(--brand-light); }
+.btn-success { background:var(--accent); color:#fff; } .btn-success:hover { background:#059669; }
+.btn-outline { background:var(--card); border:1px solid var(--border); color:var(--text); } .btn-outline:hover { border-color:var(--brand); color:var(--brand); }
 .btn-sm { padding:6px 12px; font-size:12px; }
-.btn-danger { background:var(--danger); color:#fff; }
-
-/* TABLE */
+.btn-danger { background:var(--danger); color:#fff; } .btn-danger:hover { background:#dc2626; }
+.btn-warn { background:var(--warn); color:#fff; }
 .table-wrap { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
 .table-wrap table { width:100%; border-collapse:collapse; font-size:13px; }
-.table-wrap th { background:#f8fafc; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); padding:12px 14px; text-align:left; border-bottom:2px solid var(--border); white-space:nowrap; position:sticky; top:0; }
-.table-wrap td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
-.table-wrap tr:hover { background:#f8fafc; }
-.table-wrap tr:last-child td { border-bottom:none; }
+.table-wrap th { background:#f8fafc; font-family:'Plus Jakarta Sans',sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); padding:12px 14px; text-align:left; border-bottom:2px solid var(--border); white-space:nowrap; position:sticky; top:0; z-index:1; }
+.table-wrap td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:middle; }
+.table-wrap tr:hover { background:#f8fafc; } .table-wrap tr:last-child td { border-bottom:none; }
 .table-scroll { max-height:600px; overflow-y:auto; }
-
-/* BADGES */
 .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; }
-.badge-ok { background:#d1fae5; color:#065f46; }
-.badge-warn { background:#fef3c7; color:#92400e; }
-.badge-danger { background:#fce4e4; color:#991b1b; }
-.badge-muted { background:#f1f5f9; color:#64748b; }
+.badge-ok { background:#d1fae5; color:#065f46; } .badge-warn { background:#fef3c7; color:#92400e; }
+.badge-danger { background:#fce4e4; color:#991b1b; } .badge-muted { background:#f1f5f9; color:#64748b; }
 .badge-active { background:#dbeafe; color:#1e40af; }
-
+/* TOGGLE SWITCH */
+.toggle { position:relative; display:inline-block; width:44px; height:24px; cursor:pointer; }
+.toggle input { opacity:0; width:0; height:0; }
+.toggle .slider { position:absolute; inset:0; background:#cbd5e1; border-radius:24px; transition:.3s; }
+.toggle .slider::before { content:''; position:absolute; height:18px; width:18px; left:3px; bottom:3px; background:#fff; border-radius:50%; transition:.3s; }
+.toggle input:checked + .slider { background:var(--accent); }
+.toggle input:checked + .slider::before { transform:translateX(20px); }
+/* INLINE EDIT */
+.inline-edit { background:none; border:1px solid transparent; padding:4px 8px; border-radius:6px; font-size:13px; font-family:'DM Sans',sans-serif; color:var(--text); width:100%; transition:all .2s; }
+.inline-edit:hover { border-color:var(--border); background:var(--bg); }
+.inline-edit:focus { outline:none; border-color:var(--brand); background:var(--card); box-shadow:0 0 0 3px rgba(34,78,153,.1); }
+select.inline-edit { cursor:pointer; appearance:auto; }
+/* CLICKABLE BADGE */
+.badge-clickable { cursor:pointer; transition:all .2s; } .badge-clickable:hover { opacity:.8; transform:scale(1.05); }
 /* MODAL */
 .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center; }
 .modal-overlay.open { display:flex; }
@@ -97,16 +90,12 @@ select.filter { padding:10px 14px; border:1px solid var(--border); border-radius
 .modal-close { background:none; border:none; font-size:24px; cursor:pointer; color:var(--text-muted); padding:4px; }
 .modal-body { padding:24px; }
 .modal-footer { padding:16px 24px; border-top:1px solid var(--border); display:flex; gap:8px; justify-content:flex-end; }
-
-/* FORM */
 .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .form-group { display:flex; flex-direction:column; gap:4px; }
 .form-group.full { grid-column:1/-1; }
 .form-group label { font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:.3px; }
 .form-group input, .form-group select, .form-group textarea { padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; font-family:'DM Sans',sans-serif; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--brand); box-shadow:0 0 0 3px rgba(34,78,153,.1); }
-
-/* EMPLOYEE CARDS */
 .emp-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; }
 .emp-card { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; cursor:pointer; transition:all .2s; }
 .emp-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
@@ -118,43 +107,21 @@ select.filter { padding:10px 14px; border:1px solid var(--border); border-radius
 .emp-card-body .access-count { font-size:13px; color:var(--text-muted); margin-bottom:8px; }
 .emp-vendor-list { display:flex; flex-wrap:wrap; gap:4px; }
 .emp-vendor-tag { font-size:11px; padding:2px 8px; background:#f1f5f9; border-radius:4px; color:var(--text-muted); }
-.emp-vendor-tag.active { background:#dbeafe; color:#1e40af; }
-.emp-vendor-tag.inactive { background:#fce4e4; color:#991b1b; text-decoration:line-through; }
-
-/* DETAIL PANEL */
+.emp-vendor-tag.active { background:#dbeafe; color:#1e40af; } .emp-vendor-tag.inactive { background:#fce4e4; color:#991b1b; text-decoration:line-through; }
 .detail-panel { background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; margin-bottom:24px; }
 .detail-panel h3 { font-size:18px; margin-bottom:4px; }
 .detail-panel .meta { display:flex; flex-wrap:wrap; gap:16px; margin:12px 0 20px; font-size:13px; color:var(--text-muted); }
 .detail-panel .meta span { display:flex; align-items:center; gap:4px; }
 .back-btn { color:var(--brand); font-weight:600; cursor:pointer; border:none; background:none; font-size:14px; font-family:'DM Sans',sans-serif; margin-bottom:12px; display:flex; align-items:center; gap:4px; }
 .back-btn:hover { text-decoration:underline; }
-
-/* TABS */
 .tab-bar { display:flex; gap:4px; margin-bottom:16px; border-bottom:2px solid var(--border); }
 .tab-bar button { background:none; border:none; padding:10px 20px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--text-muted); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-2px; transition:all .2s; }
-.tab-bar button.active { color:var(--brand); border-bottom-color:var(--brand); }
-.tab-bar button:hover { color:var(--brand); }
-
-/* RESPONSIVE */
-@media(max-width:768px) {
-  .form-grid { grid-template-columns:1fr; }
-  .topbar nav { display:none; }
-  .stats { grid-template-columns:repeat(2,1fr); }
-}
-
-/* COST FORMAT */
-.cost { font-variant-numeric:tabular-nums; }
-.cost-positive { color:var(--accent); }
-
-/* VENDOR ROW CLICKABLE */
-tr.clickable { cursor:pointer; }
-tr.clickable:hover { background:#eef2ff !important; }
-
-/* EXPORT BTN */
+.tab-bar button.active { color:var(--brand); border-bottom-color:var(--brand); } .tab-bar button:hover { color:var(--brand); }
+tr.clickable { cursor:pointer; } tr.clickable:hover { background:#eef2ff !important; }
 .export-bar { display:flex; gap:8px; justify-content:flex-end; margin-bottom:12px; }
-
-.empty-state { text-align:center; padding:60px 20px; color:var(--text-muted); }
-.empty-state h3 { margin-bottom:8px; }
+.empty-state { text-align:center; padding:60px 20px; color:var(--text-muted); } .empty-state h3 { margin-bottom:8px; }
+.action-btns { display:flex; gap:4px; }
+@media(max-width:768px) { .form-grid { grid-template-columns:1fr; } .topbar nav { display:none; } .stats { grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 <body>
@@ -167,105 +134,85 @@ tr.clickable:hover { background:#eef2ff !important; }
     <button onclick="showPage('employees')">Employee Access</button>
     <button onclick="showPage('add')">+ Add Vendor</button>
   </nav>
-  <div class="right">Vendor Management Portal</div>
+  <div class="right">
+    <span class="save-indicator" id="saveIndicator"></span>
+    <span style="font-size:13px;color:rgba(255,255,255,.6);">Vendor Management Portal</span>
+  </div>
 </div>
 
-<!-- ========== DASHBOARD ========== -->
 <div class="container">
+
+<!-- DASHBOARD -->
 <div id="page-dashboard" class="page active">
   <h2 style="margin-bottom:20px;">Dashboard</h2>
   <div class="stats" id="statsRow"></div>
-
   <h4 style="margin-bottom:12px;">Upcoming Renewals</h4>
-  <div class="table-wrap" style="margin-bottom:24px;">
-    <div class="table-scroll" style="max-height:300px;">
-      <table><thead><tr>
-        <th>Vendor</th><th>Category</th><th>Renewal Date</th><th>Days Left</th><th>Annual Cost</th><th>Status</th>
-      </tr></thead><tbody id="renewalTable"></tbody></table>
-    </div>
-  </div>
-
+  <div class="table-wrap" style="margin-bottom:24px;"><div class="table-scroll" style="max-height:300px;">
+    <table><thead><tr><th>Vendor</th><th>Category</th><th>Renewal Date</th><th>Days Left</th><th>Annual Cost</th><th>Status</th></tr></thead><tbody id="renewalTable"></tbody></table>
+  </div></div>
   <h4 style="margin-bottom:12px;">Cost by Category</h4>
-  <div id="categoryChart" style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:24px;"></div>
-
-  <h4 style="margin-bottom:12px;">Recent Activity</h4>
-  <div class="table-wrap">
-    <div class="table-scroll" style="max-height:250px;">
-      <table><thead><tr><th>Vendor</th><th>Status</th><th>Auto-Renew</th><th>Approval</th><th>Monthly</th></tr></thead>
-      <tbody id="activityTable"></tbody></table>
-    </div>
-  </div>
+  <div id="categoryChart" style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;"></div>
 </div>
 
-<!-- ========== VENDORS ========== -->
+<!-- VENDORS -->
 <div id="page-vendors" class="page">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
     <h2>All Vendors</h2>
     <button class="btn btn-primary" onclick="showPage('add')">+ Add Vendor</button>
   </div>
-
   <div class="toolbar">
     <div class="search-box"><input type="text" id="vendorSearch" placeholder="Search vendors..." oninput="filterVendors()"></div>
     <select class="filter" id="catFilter" onchange="filterVendors()"><option value="">All Categories</option></select>
     <select class="filter" id="deptFilter" onchange="filterVendors()"><option value="">All Departments</option></select>
     <select class="filter" id="statusFilter" onchange="filterVendors()"><option value="">All Statuses</option></select>
   </div>
-
   <div class="export-bar">
     <button class="btn btn-outline btn-sm" onclick="exportCSV()">Export CSV</button>
+    <button class="btn btn-outline btn-sm" onclick="downloadJSON()">Download JSON</button>
   </div>
-
-  <div class="table-wrap">
-    <div class="table-scroll">
-      <table><thead><tr>
-        <th>Vendor</th><th>Category</th><th>Department</th><th>Owner</th><th>Type</th>
-        <th>Monthly</th><th>Annual</th><th>Status</th><th>Auto-Renew</th><th>SOC 2</th>
-      </tr></thead><tbody id="vendorTable"></tbody></table>
-    </div>
-  </div>
+  <div class="table-wrap"><div class="table-scroll">
+    <table><thead><tr><th>Vendor</th><th>Category</th><th>Department</th><th>Owner</th><th>Type</th><th>Monthly</th><th>Annual</th><th>Status</th><th>Auto-Renew</th><th>SOC 2</th></tr></thead><tbody id="vendorTable"></tbody></table>
+  </div></div>
 </div>
 
-<!-- ========== VENDOR DETAIL ========== -->
+<!-- VENDOR DETAIL -->
 <div id="page-vendor-detail" class="page">
   <button class="back-btn" onclick="showPage('vendors')">← Back to Vendors</button>
   <div class="detail-panel" id="vendorDetail"></div>
-
   <div class="tab-bar">
     <button class="active" onclick="showVendorTab('access')">User Access</button>
     <button onclick="showVendorTab('info')">Details & Support</button>
   </div>
-
-  <div id="vendorTab-access" class="table-wrap" style="margin-bottom:24px;">
-    <table><thead><tr>
-      <th>#</th><th>Employee</th><th>Job Title</th><th>Access Level</th><th>Active</th><th>Date Granted</th><th>Approved By</th><th>Last Verified</th><th>Notes</th>
-    </tr></thead><tbody id="vendorAccessTable"></tbody></table>
+  <div id="vendorTab-access" style="margin-bottom:24px;">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:8px;">
+      <button class="btn btn-primary btn-sm" onclick="openAddUserModal()">+ Add User Access</button>
+    </div>
+    <div class="table-wrap">
+      <table><thead><tr><th>#</th><th>Employee</th><th>Job Title</th><th>Access Level</th><th>Active</th><th>Date Granted</th><th>Approved By</th><th>Last Verified</th><th>Notes</th><th>Actions</th></tr></thead><tbody id="vendorAccessTable"></tbody></table>
+    </div>
   </div>
   <div id="vendorTab-info" style="display:none;"></div>
 </div>
 
-<!-- ========== EMPLOYEES ========== -->
+<!-- EMPLOYEES -->
 <div id="page-employees" class="page">
   <h2 style="margin-bottom:20px;">Employee Access Directory</h2>
-
   <div class="toolbar">
     <div class="search-box"><input type="text" id="empSearch" placeholder="Search employees..." oninput="filterEmployees()"></div>
   </div>
-
   <div class="emp-grid" id="empGrid"></div>
 </div>
 
-<!-- ========== EMPLOYEE DETAIL ========== -->
+<!-- EMPLOYEE DETAIL -->
 <div id="page-emp-detail" class="page">
   <button class="back-btn" onclick="showPage('employees')">← Back to Employees</button>
   <div class="detail-panel" id="empDetail"></div>
   <div class="table-wrap">
-    <table><thead><tr>
-      <th>Vendor / Tool</th><th>Access Level</th><th>Active</th><th>Date Granted</th><th>Approved By</th><th>Last Verified</th><th>Notes</th>
-    </tr></thead><tbody id="empAccessTable"></tbody></table>
+    <table><thead><tr><th>Vendor / Tool</th><th>Access Level</th><th>Active</th><th>Date Granted</th><th>Approved By</th><th>Last Verified</th><th>Notes</th><th>Actions</th></tr></thead><tbody id="empAccessTable"></tbody></table>
   </div>
 </div>
 
-<!-- ========== ADD VENDOR ========== -->
+<!-- ADD VENDOR -->
 <div id="page-add" class="page">
   <h2 style="margin-bottom:20px;">Add New Vendor Account</h2>
   <div class="detail-panel">
@@ -273,62 +220,32 @@ tr.clickable:hover { background:#eef2ff !important; }
       <div class="form-grid">
         <div class="form-group"><label>Vendor / Tool Name *</label><input required id="av-vendor" placeholder="e.g. Slack"></div>
         <div class="form-group"><label>Category</label>
-          <select id="av-category">
-            <option value="">Select...</option>
-            <option>Cloud Infrastructure</option><option>Communication Services</option>
-            <option>Development Tools</option><option>Security</option><option>IT Management</option>
-            <option>Web Services</option><option>Productivity</option><option>VoIP Service</option>
-            <option>Business Management</option><option>Finance</option><option>Court Reporting</option>
-            <option>Cloud Storage</option><option>Document Management</option><option>AI / ML</option>
-            <option>HR / Payroll</option><option>Design</option><option>Other</option>
-          </select>
+          <select id="av-category"><option value="">Select...</option><option>Cloud Infrastructure</option><option>Communication Services</option><option>Development Tools</option><option>Security</option><option>IT Management</option><option>Web Services</option><option>Productivity</option><option>VoIP Service</option><option>Business Management</option><option>Finance</option><option>Court Reporting</option><option>Cloud Storage</option><option>Document Management</option><option>AI / ML</option><option>HR / Payroll</option><option>Design</option><option>Other</option></select>
         </div>
         <div class="form-group full"><label>Purpose / Description</label><input id="av-purpose" placeholder="What does this tool do?"></div>
         <div class="form-group"><label>Responsible Owner</label>
-          <select id="av-owner">
-            <option value="">Select...</option>
-            <option value="jvince">Jonathan Vince</option>
-            <option value="lpalombo">Leslie Palombo</option>
-            <option value="mhewitt">Mike Hewitt</option>
-            <option value="ageorge">Alice George</option>
-            <option value="bgreen">Brittani Green</option>
-            <option value="mrussell">Marge Russell</option>
-          </select>
+          <select id="av-owner"><option value="">Select...</option><option value="jvince">Jonathan Vince</option><option value="lpalombo">Leslie Palombo</option><option value="mhewitt">Mike Hewitt</option><option value="ageorge">Alice George</option><option value="bgreen">Brittani Green</option><option value="mrussell">Marge Russell</option></select>
         </div>
         <div class="form-group"><label>Department</label>
-          <select id="av-dept">
-            <option value="">Select...</option>
-            <option>IT</option><option>Operations</option><option>Finance</option>
-            <option>HR</option><option>Court Reporting</option><option>Executive</option>
-          </select>
+          <select id="av-dept"><option value="">Select...</option><option>IT</option><option>Operations</option><option>Finance</option><option>HR</option><option>Court Reporting</option><option>Executive</option></select>
         </div>
         <div class="form-group"><label>Subscription Type</label>
-          <select id="av-subtype">
-            <option value="">Select...</option>
-            <option>Monthly</option><option>Annual</option><option>Quarterly</option>
-            <option>Pay-as-you-go</option><option>Per-use</option><option>One-time</option>
-          </select>
+          <select id="av-subtype"><option value="">Select...</option><option>Monthly</option><option>Annual</option><option>Quarterly</option><option>Pay-as-you-go</option><option>Per-use</option><option>One-time</option></select>
         </div>
         <div class="form-group"><label>Monthly Cost ($)</label><input type="number" step="0.01" id="av-monthly" placeholder="0.00"></div>
         <div class="form-group"><label>Annual Cost ($)</label><input type="number" step="0.01" id="av-annual" placeholder="0.00"></div>
         <div class="form-group"><label>Contract Start Date</label><input type="date" id="av-start"></div>
         <div class="form-group"><label>Renewal / Review Date</label><input type="date" id="av-renewal"></div>
-        <div class="form-group"><label>Auto-Renew?</label>
-          <select id="av-autorenew"><option value="">Select...</option><option>Yes</option><option>No</option></select>
-        </div>
-        <div class="form-group"><label>SOC 2 Compliance</label>
-          <select id="av-soc2"><option value="">Select...</option><option>Yes</option><option>No</option><option>Unknown</option></select>
-        </div>
+        <div class="form-group"><label>Auto-Renew?</label><select id="av-autorenew"><option value="">Select...</option><option>Yes</option><option>No</option></select></div>
+        <div class="form-group"><label>SOC 2 Compliance</label><select id="av-soc2"><option value="">Select...</option><option>Yes</option><option>No</option><option>Unknown</option></select></div>
         <div class="form-group"><label>Support Phone</label><input id="av-phone" placeholder="+1-800-..."></div>
         <div class="form-group"><label>Support Email</label><input type="email" id="av-email" placeholder="support@..."></div>
         <div class="form-group full"><label>Contract / ToU Link</label><input id="av-link" placeholder="https://..."></div>
         <div class="form-group full"><label>Notes</label><textarea id="av-notes" rows="2" placeholder="Any additional notes..."></textarea></div>
       </div>
-
       <h4 style="margin:24px 0 12px;">Initial User Access (optional)</h4>
       <div id="accessRows"></div>
       <button type="button" class="btn btn-outline btn-sm" onclick="addAccessRow()" style="margin-bottom:16px;">+ Add User</button>
-
       <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:20px;">
         <button type="button" class="btn btn-outline" onclick="showPage('vendors')">Cancel</button>
         <button type="submit" class="btn btn-success">Add Vendor</button>
@@ -337,33 +254,109 @@ tr.clickable:hover { background:#eef2ff !important; }
   </div>
 </div>
 
-</div><!-- /container -->
+</div>
+
+<!-- ADD USER MODAL -->
+<div class="modal-overlay" id="addUserModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Add User Access</h3><button class="modal-close" onclick="closeModal('addUserModal')">&times;</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group"><label>Employee Name *</label><input id="mu-name" required placeholder="Full name"></div>
+        <div class="form-group"><label>Job Title</label><input id="mu-title" placeholder="e.g. Developer"></div>
+        <div class="form-group"><label>Access Level</label>
+          <select id="mu-level"><option>Admin</option><option>User</option><option>Read-only</option><option>Owner</option><option>Standard User</option><option>Reporter</option></select>
+        </div>
+        <div class="form-group"><label>Approved By</label><input id="mu-approved" placeholder="e.g. LP, JV"></div>
+        <div class="form-group full"><label>Notes</label><input id="mu-notes" placeholder="Any notes..."></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('addUserModal')">Cancel</button>
+      <button class="btn btn-success" onclick="saveNewUser()">Add User</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT VENDOR MODAL -->
+<div class="modal-overlay" id="editVendorModal">
+  <div class="modal">
+    <div class="modal-header"><h3>Edit Vendor</h3><button class="modal-close" onclick="closeModal('editVendorModal')">&times;</button></div>
+    <div class="modal-body" id="editVendorBody"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('editVendorModal')">Cancel</button>
+      <button class="btn btn-success" onclick="saveVendorEdits()">Save Changes</button>
+    </div>
+  </div>
+</div>
 
 <!-- TOAST -->
-<div id="toast" style="display:none;position:fixed;bottom:24px;right:24px;background:var(--brand);color:#fff;padding:14px 24px;border-radius:8px;font-weight:600;box-shadow:var(--shadow-lg);z-index:300;font-size:14px;"></div>
+<div id="toast" style="display:none;position:fixed;bottom:24px;right:24px;background:var(--brand);color:#fff;padding:14px 24px;border-radius:8px;font-weight:600;box-shadow:var(--shadow-lg);z-index:300;font-size:14px;transition:all .3s;"></div>
 
 <script>
-// ============ DATA ============
 let DATA = null;
+let currentVendorName = null; // tracks which vendor detail is open
 
+// ============ LOAD & SAVE ============
 async function loadData() {
-  try {
-    const resp = await fetch('data.json');
-    DATA = await resp.json();
-  } catch(e) {
-    // Fallback: data might be inline
-    DATA = window.__VENDOR_DATA || {vendors:[], accessByVendor:{}, employees:{}};
+  // Try localStorage first (user edits persist)
+  const saved = localStorage.getItem('revotext_vendor_data');
+  if (saved) {
+    try { DATA = JSON.parse(saved); } catch(e) { DATA = null; }
   }
-  // Remove header row if present
+  if (!DATA) {
+    try {
+      const resp = await fetch('data.json');
+      DATA = await resp.json();
+    } catch(e) {
+      DATA = {vendors:[], accessByVendor:{}, employees:{}};
+    }
+  }
   DATA.vendors = DATA.vendors.filter(v => v.vendor !== 'Vendor / Tool');
   init();
 }
 
+function saveData() {
+  rebuildEmployees();
+  localStorage.setItem('revotext_vendor_data', JSON.stringify(DATA));
+  const ind = document.getElementById('saveIndicator');
+  ind.textContent = 'Saved';
+  ind.style.color = '#86efac';
+  setTimeout(() => { ind.textContent = ''; }, 2000);
+}
+
+function rebuildEmployees() {
+  // Rebuild employees index from accessByVendor
+  const emp = {};
+  for (const [vendorKey, users] of Object.entries(DATA.accessByVendor)) {
+    for (const u of users) {
+      const name = u['User Full Name'];
+      if (!name || !name.trim()) continue;
+      if (name.endsWith('.com') || name.endsWith('.us') || name.endsWith('.org') || name.endsWith('.net') || name.endsWith('.info') || name.endsWith('.mobi')) continue;
+      if (['review date','root','admin','support','court room','revo main','vt support','ejj'].includes(name.toLowerCase())) continue;
+      if (!emp[name]) emp[name] = [];
+      emp[name].push({
+        vendor: u.vendor || vendorKey,
+        accessLevel: u['Access Level'],
+        active: u['Active? (Yes/No)'],
+        jobTitle: u['Job Title'],
+        department: u['Department'],
+        dateGranted: u['Date Access Granted'],
+        approvedBy: u['Approved By'],
+        lastVerified: u['Date Last Verified'],
+        notes: u['Notes'],
+      });
+    }
+  }
+  DATA.employees = emp;
+}
+
+// ============ INIT ============
 function init() {
+  rebuildEmployees();
   buildStats();
   buildRenewals();
   buildCategoryChart();
-  buildActivityTable();
   buildFilters();
   renderVendors();
   renderEmployees();
@@ -375,7 +368,7 @@ function showPage(name) {
   document.getElementById('page-' + name).classList.add('active');
   document.querySelectorAll('.topbar nav button').forEach(b => b.classList.remove('active'));
   const navMap = {dashboard:0, vendors:1, employees:2, add:3};
-  if (navMap[name] !== undefined) document.querySelectorAll('.topbar nav button')[navMap[name]].classList.add('active');
+  if (navMap[name] !== undefined) document.querySelectorAll('.topbar nav button')[navMap[name]]?.classList.add('active');
 }
 
 // ============ DASHBOARD ============
@@ -385,149 +378,84 @@ function buildStats() {
   const totalAnnual = v.reduce((s,x) => s + (parseFloat(x.annualCost)||0), 0);
   const activeCount = v.filter(x => x.status && x.status.toLowerCase() !== 'cancelled').length;
   const empCount = Object.keys(DATA.employees).length;
-
-  // Count renewals within 60 days
   const now = new Date();
   let upcoming = 0;
-  v.forEach(x => {
-    if (x.renewalDate) {
-      const d = new Date(x.renewalDate);
-      const diff = (d - now) / (1000*60*60*24);
-      if (diff >= 0 && diff <= 60) upcoming++;
-    }
-  });
-
+  v.forEach(x => { if (x.renewalDate) { const diff = (new Date(x.renewalDate) - now)/(864e5); if (diff >= 0 && diff <= 60) upcoming++; }});
   document.getElementById('statsRow').innerHTML = `
     <div class="stat-card"><div class="label">Total Vendors</div><div class="value">${activeCount}</div><div class="sub">Active accounts</div></div>
-    <div class="stat-card"><div class="label">Monthly Spend</div><div class="value cost">$${totalMonthly.toLocaleString('en',{minimumFractionDigits:2, maximumFractionDigits:2})}</div><div class="sub">Across all vendors</div></div>
-    <div class="stat-card"><div class="label">Annual Spend</div><div class="value cost">$${totalAnnual.toLocaleString('en',{minimumFractionDigits:2, maximumFractionDigits:2})}</div><div class="sub">Projected</div></div>
+    <div class="stat-card"><div class="label">Monthly Spend</div><div class="value">$${totalMonthly.toLocaleString('en',{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div class="sub">Across all vendors</div></div>
+    <div class="stat-card"><div class="label">Annual Spend</div><div class="value">$${totalAnnual.toLocaleString('en',{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div class="sub">Projected</div></div>
     <div class="stat-card ok"><div class="label">Employees</div><div class="value">${empCount}</div><div class="sub">With vendor access</div></div>
-    <div class="stat-card ${upcoming > 0 ? 'warn' : ''}"><div class="label">Upcoming Renewals</div><div class="value">${upcoming}</div><div class="sub">Within 60 days</div></div>
-  `;
+    <div class="stat-card ${upcoming>0?'warn':''}"><div class="label">Upcoming Renewals</div><div class="value">${upcoming}</div><div class="sub">Within 60 days</div></div>`;
 }
 
 function buildRenewals() {
   const now = new Date();
-  const rows = DATA.vendors
-    .filter(v => v.renewalDate || v.nextReview)
-    .map(v => {
-      const d = new Date(v.renewalDate || v.nextReview);
-      const diff = Math.ceil((d - now)/(1000*60*60*24));
-      return {...v, _date: d, _diff: diff};
-    })
-    .sort((a,b) => a._diff - b._diff)
-    .slice(0, 15);
-
+  const rows = DATA.vendors.filter(v => v.renewalDate||v.nextReview).map(v => {
+    const d = new Date(v.renewalDate||v.nextReview); return {...v, _date:d, _diff:Math.ceil((d-now)/864e5)};
+  }).sort((a,b) => a._diff-b._diff).slice(0,15);
   document.getElementById('renewalTable').innerHTML = rows.map(v => {
-    const badgeClass = v._diff < 0 ? 'badge-danger' : v._diff <= 30 ? 'badge-warn' : v._diff <= 60 ? 'badge-warn' : 'badge-ok';
-    const label = v._diff < 0 ? 'Overdue' : v._diff + ' days';
-    return `<tr class="clickable" onclick="openVendor('${esc(v.vendor)}')">
-      <td><strong>${esc(v.vendor)}</strong></td>
-      <td>${esc(v.category||'')}</td>
-      <td>${v._date.toLocaleDateString()}</td>
-      <td><span class="badge ${badgeClass}">${label}</span></td>
-      <td class="cost">${fmtCost(v.annualCost)}</td>
-      <td><span class="badge ${v.status==='OK'?'badge-ok':'badge-muted'}">${esc(v.status||'—')}</span></td>
-    </tr>`;
+    const bc = v._diff<0?'badge-danger':v._diff<=60?'badge-warn':'badge-ok';
+    return `<tr class="clickable" onclick="openVendor('${esc(v.vendor)}')"><td><strong>${esc(v.vendor)}</strong></td><td>${esc(v.category||'')}</td><td>${v._date.toLocaleDateString()}</td><td><span class="badge ${bc}">${v._diff<0?'Overdue':v._diff+' days'}</span></td><td>${fmtCost(v.annualCost)}</td><td><span class="badge ${v.status==='OK'?'badge-ok':'badge-muted'}">${esc(v.status||'—')}</span></td></tr>`;
   }).join('');
 }
 
 function buildCategoryChart() {
   const cats = {};
-  DATA.vendors.forEach(v => {
-    const c = v.category || 'Uncategorized';
-    cats[c] = (cats[c]||0) + (parseFloat(v.monthlyCost)||0);
-  });
+  DATA.vendors.forEach(v => { const c=v.category||'Uncategorized'; cats[c]=(cats[c]||0)+(parseFloat(v.monthlyCost)||0); });
   const sorted = Object.entries(cats).sort((a,b) => b[1]-a[1]);
-  const maxVal = sorted[0]?.[1] || 1;
+  const mx = sorted[0]?.[1]||1;
   const colors = ['#224e99','#3a6bc5','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16','#f97316'];
-
-  document.getElementById('categoryChart').innerHTML = sorted.map(([cat, val], i) => `
+  document.getElementById('categoryChart').innerHTML = sorted.map(([cat,val],i) => `
     <div style="flex:1;min-width:140px;background:var(--card);border-radius:8px;padding:14px;box-shadow:var(--shadow);">
       <div style="font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;margin-bottom:8px;">${esc(cat)}</div>
-      <div style="height:6px;background:#f1f5f9;border-radius:3px;margin-bottom:6px;">
-        <div style="height:100%;width:${(val/maxVal*100).toFixed(0)}%;background:${colors[i%colors.length]};border-radius:3px;"></div>
-      </div>
+      <div style="height:6px;background:#f1f5f9;border-radius:3px;margin-bottom:6px;"><div style="height:100%;width:${(val/mx*100).toFixed(0)}%;background:${colors[i%colors.length]};border-radius:3px;"></div></div>
       <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;">${fmtCost(val)}</div>
       <div style="font-size:11px;color:var(--text-muted);">/month</div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
-function buildActivityTable() {
-  const rows = DATA.vendors.slice(0, 20);
-  document.getElementById('activityTable').innerHTML = rows.map(v => `
-    <tr class="clickable" onclick="openVendor('${esc(v.vendor)}')">
-      <td><strong>${esc(v.vendor)}</strong></td>
-      <td><span class="badge ${v.status==='OK'?'badge-ok':v.status==='Cancelled'?'badge-danger':'badge-muted'}">${esc(v.status||'—')}</span></td>
-      <td>${esc(v.autoRenew||'—')}</td>
-      <td>${esc(v.approvalStatus||'—')}</td>
-      <td class="cost">${fmtCost(v.monthlyCost)}</td>
-    </tr>
-  `).join('');
-}
-
-// ============ VENDORS TABLE ============
+// ============ VENDOR LIST ============
 function buildFilters() {
   const cats = new Set(), depts = new Set(), statuses = new Set();
-  DATA.vendors.forEach(v => {
-    if(v.category) cats.add(v.category);
-    if(v.department) depts.add(v.department);
-    if(v.status) statuses.add(v.status);
-  });
-  const catSel = document.getElementById('catFilter');
-  [...cats].sort().forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; catSel.appendChild(o); });
-  const deptSel = document.getElementById('deptFilter');
-  [...depts].sort().forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=d; deptSel.appendChild(o); });
-  const statSel = document.getElementById('statusFilter');
-  [...statuses].sort().forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; statSel.appendChild(o); });
+  DATA.vendors.forEach(v => { if(v.category) cats.add(v.category); if(v.department) depts.add(v.department); if(v.status) statuses.add(v.status); });
+  const addOpts = (id, set) => { const el=document.getElementById(id); [...set].sort().forEach(s => { const o=document.createElement('option'); o.value=s; o.textContent=s; el.appendChild(o); }); };
+  addOpts('catFilter',cats); addOpts('deptFilter',depts); addOpts('statusFilter',statuses);
 }
-
 function filterVendors() {
-  const q = document.getElementById('vendorSearch').value.toLowerCase();
-  const cat = document.getElementById('catFilter').value;
-  const dept = document.getElementById('deptFilter').value;
-  const stat = document.getElementById('statusFilter').value;
-
-  const filtered = DATA.vendors.filter(v => {
+  const q=document.getElementById('vendorSearch').value.toLowerCase(), cat=document.getElementById('catFilter').value, dept=document.getElementById('deptFilter').value, stat=document.getElementById('statusFilter').value;
+  renderVendorRows(DATA.vendors.filter(v => {
     if (q && !v.vendor.toLowerCase().includes(q) && !(v.purpose||'').toLowerCase().includes(q)) return false;
-    if (cat && v.category !== cat) return false;
-    if (dept && v.department !== dept) return false;
-    if (stat && v.status !== stat) return false;
-    return true;
-  });
-  renderVendorRows(filtered);
+    if (cat && v.category!==cat) return false; if (dept && v.department!==dept) return false; if (stat && v.status!==stat) return false; return true;
+  }));
 }
-
 function renderVendors() { renderVendorRows(DATA.vendors); }
-
 function renderVendorRows(list) {
   document.getElementById('vendorTable').innerHTML = list.map(v => `
     <tr class="clickable" onclick="openVendor('${esc(v.vendor)}')">
       <td><strong>${esc(v.vendor)}</strong><br><span style="font-size:11px;color:var(--text-muted);">${esc((v.purpose||'').substring(0,60))}</span></td>
-      <td>${esc(v.category||'—')}</td>
-      <td>${esc(v.department||'—')}</td>
-      <td>${esc(v.owner||'—')}</td>
-      <td>${esc(v.subType||'—')}</td>
-      <td class="cost">${fmtCost(v.monthlyCost)}</td>
-      <td class="cost">${fmtCost(v.annualCost)}</td>
+      <td>${esc(v.category||'—')}</td><td>${esc(v.department||'—')}</td><td>${esc(v.owner||'—')}</td><td>${esc(v.subType||'—')}</td>
+      <td>${fmtCost(v.monthlyCost)}</td><td>${fmtCost(v.annualCost)}</td>
       <td><span class="badge ${v.status==='OK'?'badge-ok':v.status==='Cancelled'?'badge-danger':'badge-muted'}">${esc(v.status||'—')}</span></td>
-      <td>${esc(v.autoRenew||'—')}</td>
-      <td>${v.soc2==='Yes'?'<span class="badge badge-ok">Yes</span>':esc(v.soc2||'—')}</td>
-    </tr>
-  `).join('');
+      <td>${esc(v.autoRenew||'—')}</td><td>${v.soc2==='Yes'?'<span class="badge badge-ok">Yes</span>':esc(v.soc2||'—')}</td>
+    </tr>`).join('');
 }
 
-// ============ VENDOR DETAIL ============
+// ============ VENDOR DETAIL (interactive) ============
 function openVendor(name) {
   const v = DATA.vendors.find(x => x.vendor === name);
   if (!v) return;
-
+  currentVendorName = name;
   showPage('vendor-detail');
 
   document.getElementById('vendorDetail').innerHTML = `
-    <h3>${esc(v.vendor)}</h3>
-    <p style="color:var(--text-muted);margin-top:4px;">${esc(v.purpose||'')}</p>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+      <div>
+        <h3>${esc(v.vendor)}</h3>
+        <p style="color:var(--text-muted);margin-top:4px;">${esc(v.purpose||'')}</p>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="openEditVendorModal('${esc(v.vendor)}')">Edit Vendor</button>
+    </div>
     <div class="meta">
       <span><strong>Category:</strong> ${esc(v.category||'—')}</span>
       <span><strong>Department:</strong> ${esc(v.department||'—')}</span>
@@ -537,295 +465,385 @@ function openVendor(name) {
       <span><strong>Annual:</strong> ${fmtCost(v.annualCost)}</span>
       <span><strong>Status:</strong> <span class="badge ${v.status==='OK'?'badge-ok':'badge-muted'}">${esc(v.status||'—')}</span></span>
       <span><strong>SOC 2:</strong> ${v.soc2==='Yes'?'<span class="badge badge-ok">Yes</span>':esc(v.soc2||'—')}</span>
-      <span><strong>Auto-Renew:</strong> ${esc(v.autoRenew||'—')}</span>
-    </div>
-    ${v.notes ? `<p style="font-size:13px;color:var(--text-muted);"><strong>Notes:</strong> ${esc(v.notes)}</p>` : ''}
-  `;
+    </div>`;
 
-  // Find access data - try matching tab name
-  let accessData = null;
-  for (const [tabKey, users] of Object.entries(DATA.accessByVendor)) {
-    if (tabKey === name || users[0]?.vendor === name || tabKey.includes(name) || name.includes(tabKey)) {
-      accessData = users;
-      break;
-    }
-  }
-  // Fuzzy match
-  if (!accessData) {
-    const nameL = name.toLowerCase();
-    for (const [tabKey, users] of Object.entries(DATA.accessByVendor)) {
-      if (nameL.includes(tabKey.toLowerCase()) || tabKey.toLowerCase().includes(nameL.split(' ')[0].toLowerCase())) {
-        accessData = users;
-        break;
-      }
-    }
-  }
-
-  const tbody = document.getElementById('vendorAccessTable');
-  if (accessData && accessData.length > 0) {
-    const filtered = accessData.filter(u => {
-      const n = u['User Full Name'];
-      return n && n.trim() && !n.endsWith('.com') && !n.endsWith('.us') && n.toLowerCase() !== 'review date';
-    });
-    tbody.innerHTML = filtered.map((u, i) => {
-      const isActive = u['Active? (Yes/No)'] && u['Active? (Yes/No)'].toLowerCase() === 'yes';
-      return `<tr>
-        <td>${i+1}</td>
-        <td><strong>${esc(u['User Full Name']||'')}</strong></td>
-        <td>${esc(u['Job Title']||'—')}</td>
-        <td>${esc(u['Access Level']||'—')}</td>
-        <td><span class="badge ${isActive?'badge-active':'badge-danger'}">${isActive?'Active':'Inactive'}</span></td>
-        <td>${esc(u['Date Access Granted']||'—')}</td>
-        <td>${esc(u['Approved By']||'—')}</td>
-        <td>${esc(u['Date Last Verified']||'—')}</td>
-        <td style="max-width:200px;font-size:11px;">${esc(u['Notes']||'—')}</td>
-      </tr>`;
-    }).join('');
-  } else {
-    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:20px;">No user access data available for this vendor</td></tr>';
-  }
-
-  // Info tab
-  document.getElementById('vendorTab-info').innerHTML = `
-    <div class="detail-panel">
-      <div class="form-grid" style="gap:12px;">
-        <div><strong style="font-size:12px;color:var(--text-muted);">Contract Start</strong><br>${esc(v.contractStart||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Renewal Date</strong><br>${esc(v.renewalDate||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">60-Day Notice Date</strong><br>${esc(v.noticeDate||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Days Until Renewal</strong><br>${esc(String(v.daysUntilRenewal||'—'))}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Approval Status</strong><br>${esc(v.approvalStatus||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Approval Date</strong><br>${esc(v.approvalDate||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Last Review</strong><br>${esc(v.lastReview||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Next Review</strong><br>${esc(v.nextReview||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Support Phone</strong><br>${esc(v.supportPhone||'—')}</div>
-        <div><strong style="font-size:12px;color:var(--text-muted);">Support Email</strong><br>${v.supportEmail ? `<a href="mailto:${esc(v.supportEmail)}">${esc(v.supportEmail)}</a>` : '—'}</div>
-        <div class="full"><strong style="font-size:12px;color:var(--text-muted);">Contract Link</strong><br>${v.contractLink ? `<a href="${esc(v.contractLink)}" target="_blank" rel="noopener">${esc(v.contractLink)}</a>` : '—'}</div>
-      </div>
-    </div>
-  `;
-
+  renderVendorAccess(name);
+  renderVendorInfo(v);
   showVendorTab('access');
 }
 
-function showVendorTab(tab) {
-  document.getElementById('vendorTab-access').style.display = tab === 'access' ? '' : 'none';
-  document.getElementById('vendorTab-info').style.display = tab === 'info' ? '' : 'none';
-  document.querySelectorAll('#page-vendor-detail .tab-bar button').forEach((b,i) => {
-    b.classList.toggle('active', (tab==='access' && i===0) || (tab==='info' && i===1));
-  });
-}
+function renderVendorAccess(vendorName) {
+  let accessData = findAccessData(vendorName);
+  const tbody = document.getElementById('vendorAccessTable');
 
-// ============ EMPLOYEES ============
-function renderEmployees(filter='') {
-  const grid = document.getElementById('empGrid');
-  const entries = Object.entries(DATA.employees)
-    .filter(([name]) => {
-      if (!name || name.endsWith('.com') || name.endsWith('.us') || name === 'Review Date') return false;
-      if (filter && !name.toLowerCase().includes(filter.toLowerCase())) return false;
-      return true;
-    })
-    .sort((a,b) => a[0].localeCompare(b[0]));
-
-  grid.innerHTML = entries.map(([name, access]) => {
-    const activeCount = access.filter(a => a.active && a.active.toLowerCase() === 'yes').length;
-    const inactiveCount = access.length - activeCount;
-    const title = access.find(a => a.jobTitle)?.jobTitle || '';
-    const initials = name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
-
-    return `<div class="emp-card" onclick="openEmployee('${esc(name)}')">
-      <div class="emp-card-header">
-        <div class="emp-avatar">${initials}</div>
-        <div>
-          <div class="name">${esc(name)}</div>
-          ${title ? `<div class="title">${esc(title)}</div>` : ''}
-        </div>
-      </div>
-      <div class="emp-card-body">
-        <div class="access-count"><strong>${activeCount}</strong> active / <strong>${access.length}</strong> total vendor accounts</div>
-        <div class="emp-vendor-list">
-          ${access.slice(0, 8).map(a => {
-            const isActive = a.active && a.active.toLowerCase() === 'yes';
-            return `<span class="emp-vendor-tag ${isActive?'active':'inactive'}">${esc((a.vendor||'').substring(0,25))}</span>`;
-          }).join('')}
-          ${access.length > 8 ? `<span class="emp-vendor-tag">+${access.length-8} more</span>` : ''}
-        </div>
-      </div>
-    </div>`;
-  }).join('');
-
-  if (entries.length === 0) {
-    grid.innerHTML = '<div class="empty-state"><h3>No employees found</h3><p>Try adjusting your search.</p></div>';
+  if (!accessData || accessData.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:20px;">No user access data. Click "+ Add User Access" to add users.</td></tr>';
+    return;
   }
-}
 
-function filterEmployees() {
-  renderEmployees(document.getElementById('empSearch').value);
-}
+  const filtered = accessData.filter(u => {
+    const n = u['User Full Name'];
+    return n && n.trim() && !n.endsWith('.com') && !n.endsWith('.us') && n.toLowerCase() !== 'review date';
+  });
 
-function openEmployee(name) {
-  const access = DATA.employees[name];
-  if (!access) return;
-
-  showPage('emp-detail');
-
-  const title = access.find(a => a.jobTitle)?.jobTitle || '';
-  const dept = access.find(a => a.department)?.department || '';
-  const activeCount = access.filter(a => a.active && a.active.toLowerCase() === 'yes').length;
-
-  document.getElementById('empDetail').innerHTML = `
-    <h3>${esc(name)}</h3>
-    <div class="meta">
-      ${title ? `<span><strong>Title:</strong> ${esc(title)}</span>` : ''}
-      ${dept ? `<span><strong>Department:</strong> ${esc(dept)}</span>` : ''}
-      <span><strong>Active Accounts:</strong> <span class="badge badge-active">${activeCount}</span></span>
-      <span><strong>Total Accounts:</strong> ${access.length}</span>
-    </div>
-  `;
-
-  const tbody = document.getElementById('empAccessTable');
-  tbody.innerHTML = access
-    .sort((a,b) => {
-      const aActive = a.active && a.active.toLowerCase() === 'yes' ? 0 : 1;
-      const bActive = b.active && b.active.toLowerCase() === 'yes' ? 0 : 1;
-      return aActive - bActive || (a.vendor||'').localeCompare(b.vendor||'');
-    })
-    .map(a => {
-    const isActive = a.active && a.active.toLowerCase() === 'yes';
+  tbody.innerHTML = filtered.map((u, i) => {
+    const isActive = u['Active? (Yes/No)'] && String(u['Active? (Yes/No)']).toLowerCase() === 'yes';
+    const vendorKey = findAccessKey(vendorName);
     return `<tr>
-      <td><strong style="cursor:pointer;color:var(--brand);" onclick="openVendor('${esc(a.vendor||'')}')">${esc(a.vendor||'—')}</strong></td>
-      <td>${esc(a.accessLevel||'—')}</td>
-      <td><span class="badge ${isActive?'badge-active':'badge-danger'}">${isActive?'Active':'Inactive'}</span></td>
-      <td>${esc(a.dateGranted||'—')}</td>
-      <td>${esc(a.approvedBy||'—')}</td>
-      <td>${esc(a.lastVerified||'—')}</td>
-      <td style="max-width:200px;font-size:11px;">${esc(a.notes||'—')}</td>
+      <td>${i+1}</td>
+      <td><strong>${esc(u['User Full Name']||'')}</strong></td>
+      <td><input class="inline-edit" value="${esc(u['Job Title']||'')}" onchange="updateUserField('${esc(vendorKey)}',${i},'Job Title',this.value)" placeholder="—"></td>
+      <td><select class="inline-edit" onchange="updateUserField('${esc(vendorKey)}',${i},'Access Level',this.value)">
+        ${['Admin','User','Read-only','Owner','Standard User','Reporter','Vendor admin, Account manager',''].map(opt => `<option ${(u['Access Level']||'')===opt?'selected':''}>${opt||'—'}</option>`).join('')}
+      </select></td>
+      <td><label class="toggle" title="Click to toggle active/inactive">
+        <input type="checkbox" ${isActive?'checked':''} onchange="toggleUserActive('${esc(vendorKey)}',${i},this.checked)">
+        <span class="slider"></span>
+      </label>
+      <span style="font-size:11px;margin-left:6px;color:${isActive?'var(--accent)':'var(--danger)'}">${isActive?'Active':'Inactive'}</span></td>
+      <td><input class="inline-edit" type="date" value="${esc(u['Date Access Granted']||'')}" onchange="updateUserField('${esc(vendorKey)}',${i},'Date Access Granted',this.value)"></td>
+      <td><input class="inline-edit" value="${esc(u['Approved By']||'')}" onchange="updateUserField('${esc(vendorKey)}',${i},'Approved By',this.value)" placeholder="—" style="width:60px;"></td>
+      <td><input class="inline-edit" type="date" value="${esc(u['Date Last Verified']||'')}" onchange="updateUserField('${esc(vendorKey)}',${i},'Date Last Verified',this.value)"></td>
+      <td><input class="inline-edit" value="${esc(u['Notes']||'')}" onchange="updateUserField('${esc(vendorKey)}',${i},'Notes',this.value)" placeholder="—" style="max-width:150px;"></td>
+      <td><button class="btn btn-danger btn-sm" onclick="removeUser('${esc(vendorKey)}',${i})" title="Remove access">✕</button></td>
     </tr>`;
   }).join('');
 }
 
-// ============ ADD VENDOR ============
-let accessRowCount = 0;
-function addAccessRow() {
-  accessRowCount++;
-  const div = document.createElement('div');
-  div.className = 'form-grid';
-  div.style.marginBottom = '8px';
-  div.innerHTML = `
-    <div class="form-group"><label>Employee Name</label><input placeholder="Full name" class="ar-name"></div>
-    <div class="form-group"><label>Access Level</label>
-      <select class="ar-level"><option>Admin</option><option>User</option><option>Read-only</option><option>Owner</option></select>
-    </div>
-  `;
-  document.getElementById('accessRows').appendChild(div);
+function renderVendorInfo(v) {
+  document.getElementById('vendorTab-info').innerHTML = `
+    <div class="detail-panel"><div class="form-grid" style="gap:12px;">
+      <div><strong style="font-size:12px;color:var(--text-muted);">Contract Start</strong><br>${esc(v.contractStart||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Renewal Date</strong><br>${esc(v.renewalDate||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">60-Day Notice</strong><br>${esc(v.noticeDate||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Days Until Renewal</strong><br>${esc(String(v.daysUntilRenewal||'—'))}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Approval Status</strong><br>${esc(v.approvalStatus||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Next Review</strong><br>${esc(v.nextReview||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Support Phone</strong><br>${esc(v.supportPhone||'—')}</div>
+      <div><strong style="font-size:12px;color:var(--text-muted);">Support Email</strong><br>${v.supportEmail?`<a href="mailto:${esc(v.supportEmail)}">${esc(v.supportEmail)}</a>`:'—'}</div>
+      <div class="full"><strong style="font-size:12px;color:var(--text-muted);">Contract Link</strong><br>${v.contractLink?`<a href="${esc(v.contractLink)}" target="_blank">${esc(v.contractLink)}</a>`:'—'}</div>
+    </div></div>`;
 }
 
+// ============ INTERACTIVE: Toggle Active/Inactive ============
+function toggleUserActive(vendorKey, index, checked) {
+  const users = DATA.accessByVendor[vendorKey];
+  if (!users || !users[index]) return;
+  // Filter to real users to find actual index
+  const realUsers = users.filter(u => {
+    const n = u['User Full Name'];
+    return n && n.trim() && !n.endsWith('.com') && !n.endsWith('.us') && n.toLowerCase() !== 'review date';
+  });
+  const realUser = realUsers[index];
+  if (!realUser) return;
+  // Find in original array
+  const origIdx = users.indexOf(realUser);
+  if (origIdx === -1) return;
+  users[origIdx]['Active? (Yes/No)'] = checked ? 'Yes' : 'No';
+  saveData();
+  renderVendorAccess(currentVendorName);
+  toast(`${realUser['User Full Name']} set to ${checked?'Active':'Inactive'}`);
+}
+
+function updateUserField(vendorKey, index, field, value) {
+  const users = DATA.accessByVendor[vendorKey];
+  if (!users) return;
+  const realUsers = users.filter(u => {
+    const n = u['User Full Name'];
+    return n && n.trim() && !n.endsWith('.com') && !n.endsWith('.us') && n.toLowerCase() !== 'review date';
+  });
+  const realUser = realUsers[index];
+  if (!realUser) return;
+  const origIdx = users.indexOf(realUser);
+  if (origIdx === -1) return;
+  users[origIdx][field] = value;
+  saveData();
+  toast(`Updated ${field}`);
+}
+
+function removeUser(vendorKey, index) {
+  const users = DATA.accessByVendor[vendorKey];
+  if (!users) return;
+  const realUsers = users.filter(u => {
+    const n = u['User Full Name'];
+    return n && n.trim() && !n.endsWith('.com') && !n.endsWith('.us') && n.toLowerCase() !== 'review date';
+  });
+  const realUser = realUsers[index];
+  if (!realUser) return;
+  if (!confirm(`Remove ${realUser['User Full Name']}'s access to this vendor?`)) return;
+  const origIdx = users.indexOf(realUser);
+  users.splice(origIdx, 1);
+  saveData();
+  renderVendorAccess(currentVendorName);
+  toast(`Removed ${realUser['User Full Name']}`);
+}
+
+// ============ ADD USER TO VENDOR ============
+function openAddUserModal() {
+  document.getElementById('mu-name').value = '';
+  document.getElementById('mu-title').value = '';
+  document.getElementById('mu-level').value = 'User';
+  document.getElementById('mu-approved').value = '';
+  document.getElementById('mu-notes').value = '';
+  document.getElementById('addUserModal').classList.add('open');
+}
+
+function saveNewUser() {
+  const name = document.getElementById('mu-name').value.trim();
+  if (!name) { alert('Please enter an employee name.'); return; }
+  const vendorKey = findAccessKey(currentVendorName);
+  if (!vendorKey) {
+    // Create new access array for this vendor
+    const key = currentVendorName;
+    DATA.accessByVendor[key] = [];
+  }
+  const key = vendorKey || currentVendorName;
+  DATA.accessByVendor[key].push({
+    '#': DATA.accessByVendor[key].length + 1,
+    'User Full Name': name,
+    'Job Title': document.getElementById('mu-title').value,
+    'Access Level': document.getElementById('mu-level').value,
+    'Active? (Yes/No)': 'Yes',
+    'Date Access Granted': new Date().toISOString().split('T')[0],
+    'Approved By': document.getElementById('mu-approved').value,
+    'Date Last Verified': new Date().toISOString().split('T')[0],
+    'Notes': document.getElementById('mu-notes').value,
+    vendor: currentVendorName,
+  });
+  saveData();
+  closeModal('addUserModal');
+  renderVendorAccess(currentVendorName);
+  toast(`${name} added to ${currentVendorName}`);
+}
+
+// ============ EDIT VENDOR MODAL ============
+function openEditVendorModal(vendorName) {
+  const v = DATA.vendors.find(x => x.vendor === vendorName);
+  if (!v) return;
+  document.getElementById('editVendorBody').innerHTML = `
+    <div class="form-grid">
+      <div class="form-group"><label>Vendor Name</label><input id="ev-vendor" value="${esc(v.vendor)}"></div>
+      <div class="form-group"><label>Category</label><input id="ev-category" value="${esc(v.category||'')}"></div>
+      <div class="form-group full"><label>Purpose / Description</label><input id="ev-purpose" value="${esc(v.purpose||'')}"></div>
+      <div class="form-group"><label>Owner</label><input id="ev-owner" value="${esc(v.owner||'')}"></div>
+      <div class="form-group"><label>Department</label><input id="ev-dept" value="${esc(v.department||'')}"></div>
+      <div class="form-group"><label>Subscription Type</label><input id="ev-subtype" value="${esc(v.subType||'')}"></div>
+      <div class="form-group"><label>Monthly Cost ($)</label><input type="number" step="0.01" id="ev-monthly" value="${v.monthlyCost||''}"></div>
+      <div class="form-group"><label>Annual Cost ($)</label><input type="number" step="0.01" id="ev-annual" value="${v.annualCost||''}"></div>
+      <div class="form-group"><label>Contract Start</label><input type="date" id="ev-start" value="${esc(v.contractStart||'')}"></div>
+      <div class="form-group"><label>Renewal Date</label><input type="date" id="ev-renewal" value="${esc(v.renewalDate||'')}"></div>
+      <div class="form-group"><label>Auto-Renew</label><select id="ev-autorenew"><option ${v.autoRenew==='Yes'?'selected':''}>Yes</option><option ${v.autoRenew==='No'?'selected':''}>No</option><option value="">—</option></select></div>
+      <div class="form-group"><label>Status</label><select id="ev-status"><option ${v.status==='OK'?'selected':''}>OK</option><option ${v.status==='Review'?'selected':''}>Review</option><option ${v.status==='Cancelled'?'selected':''}>Cancelled</option><option ${v.status==='Pending'?'selected':''}>Pending</option></select></div>
+      <div class="form-group"><label>SOC 2</label><select id="ev-soc2"><option ${v.soc2==='Yes'?'selected':''}>Yes</option><option ${v.soc2==='No'?'selected':''}>No</option><option ${v.soc2==='Unknown'?'selected':''}>Unknown</option></select></div>
+      <div class="form-group"><label>Support Phone</label><input id="ev-phone" value="${esc(v.supportPhone||'')}"></div>
+      <div class="form-group"><label>Support Email</label><input id="ev-email" value="${esc(v.supportEmail||'')}"></div>
+      <div class="form-group full"><label>Contract Link</label><input id="ev-link" value="${esc(v.contractLink||'')}"></div>
+      <div class="form-group full"><label>Notes</label><textarea id="ev-notes" rows="2">${esc(v.notes||'')}</textarea></div>
+    </div>`;
+  document.getElementById('editVendorModal').classList.add('open');
+}
+
+function saveVendorEdits() {
+  const v = DATA.vendors.find(x => x.vendor === currentVendorName);
+  if (!v) return;
+  v.vendor = document.getElementById('ev-vendor').value;
+  v.category = document.getElementById('ev-category').value;
+  v.purpose = document.getElementById('ev-purpose').value;
+  v.owner = document.getElementById('ev-owner').value;
+  v.department = document.getElementById('ev-dept').value;
+  v.subType = document.getElementById('ev-subtype').value;
+  v.monthlyCost = parseFloat(document.getElementById('ev-monthly').value) || null;
+  v.annualCost = parseFloat(document.getElementById('ev-annual').value) || null;
+  v.contractStart = document.getElementById('ev-start').value || null;
+  v.renewalDate = document.getElementById('ev-renewal').value || null;
+  v.autoRenew = document.getElementById('ev-autorenew').value;
+  v.status = document.getElementById('ev-status').value;
+  v.soc2 = document.getElementById('ev-soc2').value;
+  v.supportPhone = document.getElementById('ev-phone').value;
+  v.supportEmail = document.getElementById('ev-email').value;
+  v.contractLink = document.getElementById('ev-link').value;
+  v.notes = document.getElementById('ev-notes').value;
+  currentVendorName = v.vendor;
+  saveData();
+  closeModal('editVendorModal');
+  openVendor(v.vendor);
+  renderVendors();
+  buildStats();
+  toast(`${v.vendor} updated`);
+}
+
+function showVendorTab(tab) {
+  document.getElementById('vendorTab-access').style.display = tab==='access'?'':'none';
+  document.getElementById('vendorTab-info').style.display = tab==='info'?'':'none';
+  document.querySelectorAll('#page-vendor-detail .tab-bar button').forEach((b,i) => b.classList.toggle('active',(tab==='access'&&i===0)||(tab==='info'&&i===1)));
+}
+
+// ============ EMPLOYEES ============
+function renderEmployees(filter='') {
+  const entries = Object.entries(DATA.employees).filter(([name]) => {
+    if (!name || name.endsWith('.com') || name.endsWith('.us') || name==='Review Date') return false;
+    if (filter && !name.toLowerCase().includes(filter.toLowerCase())) return false;
+    return true;
+  }).sort((a,b) => a[0].localeCompare(b[0]));
+
+  document.getElementById('empGrid').innerHTML = entries.length === 0
+    ? '<div class="empty-state"><h3>No employees found</h3></div>'
+    : entries.map(([name, access]) => {
+    const ac = access.filter(a => a.active && String(a.active).toLowerCase()==='yes').length;
+    const title = access.find(a => a.jobTitle)?.jobTitle||'';
+    const init = name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+    return `<div class="emp-card" onclick="openEmployee('${esc(name)}')">
+      <div class="emp-card-header"><div class="emp-avatar">${init}</div><div><div class="name">${esc(name)}</div>${title?`<div class="title">${esc(title)}</div>`:''}</div></div>
+      <div class="emp-card-body">
+        <div class="access-count"><strong>${ac}</strong> active / <strong>${access.length}</strong> total</div>
+        <div class="emp-vendor-list">${access.slice(0,8).map(a => {
+          const ia = a.active && String(a.active).toLowerCase()==='yes';
+          return `<span class="emp-vendor-tag ${ia?'active':'inactive'}">${esc((a.vendor||'').substring(0,25))}</span>`;
+        }).join('')}${access.length>8?`<span class="emp-vendor-tag">+${access.length-8} more</span>`:''}</div>
+      </div></div>`;
+  }).join('');
+}
+function filterEmployees() { renderEmployees(document.getElementById('empSearch').value); }
+
+function openEmployee(name) {
+  const access = DATA.employees[name];
+  if (!access) return;
+  showPage('emp-detail');
+  const title = access.find(a=>a.jobTitle)?.jobTitle||'';
+  const dept = access.find(a=>a.department)?.department||'';
+  const ac = access.filter(a=>a.active&&String(a.active).toLowerCase()==='yes').length;
+  document.getElementById('empDetail').innerHTML = `<h3>${esc(name)}</h3><div class="meta">
+    ${title?`<span><strong>Title:</strong> ${esc(title)}</span>`:''}${dept?`<span><strong>Department:</strong> ${esc(dept)}</span>`:''}
+    <span><strong>Active:</strong> <span class="badge badge-active">${ac}</span></span><span><strong>Total:</strong> ${access.length}</span></div>`;
+
+  document.getElementById('empAccessTable').innerHTML = access.sort((a,b) => {
+    const aa = a.active&&String(a.active).toLowerCase()==='yes'?0:1, bb = b.active&&String(b.active).toLowerCase()==='yes'?0:1;
+    return aa-bb||(a.vendor||'').localeCompare(b.vendor||'');
+  }).map((a,i) => {
+    const ia = a.active && String(a.active).toLowerCase()==='yes';
+    const vendorKey = findAccessKeyForEmployeeVendor(name, a.vendor);
+    const userIdx = findUserIndexInVendor(vendorKey, name);
+    return `<tr>
+      <td><strong style="cursor:pointer;color:var(--brand);" onclick="openVendor('${esc(a.vendor||'')}')">${esc(a.vendor||'—')}</strong></td>
+      <td>${esc(a.accessLevel||'—')}</td>
+      <td><label class="toggle"><input type="checkbox" ${ia?'checked':''} onchange="toggleFromEmpView('${esc(name)}','${esc(a.vendor||'')}',this.checked)"><span class="slider"></span></label>
+      <span style="font-size:11px;margin-left:6px;color:${ia?'var(--accent)':'var(--danger)'}">${ia?'Active':'Inactive'}</span></td>
+      <td>${esc(a.dateGranted||'—')}</td><td>${esc(a.approvedBy||'—')}</td><td>${esc(a.lastVerified||'—')}</td>
+      <td style="max-width:150px;font-size:11px;">${esc(a.notes||'—')}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="removeFromEmpView('${esc(name)}','${esc(a.vendor||'')}')">✕</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function toggleFromEmpView(empName, vendorName, checked) {
+  // Find in accessByVendor and update
+  for (const [key, users] of Object.entries(DATA.accessByVendor)) {
+    for (const u of users) {
+      if (u['User Full Name'] === empName && (u.vendor === vendorName || key === vendorName || vendorName.includes(key) || key.includes(vendorName.split(' ')[0]))) {
+        u['Active? (Yes/No)'] = checked ? 'Yes' : 'No';
+        saveData();
+        openEmployee(empName);
+        toast(`${empName} → ${vendorName}: ${checked?'Active':'Inactive'}`);
+        return;
+      }
+    }
+  }
+}
+
+function removeFromEmpView(empName, vendorName) {
+  if (!confirm(`Remove ${empName}'s access to ${vendorName}?`)) return;
+  for (const [key, users] of Object.entries(DATA.accessByVendor)) {
+    for (let i = 0; i < users.length; i++) {
+      if (users[i]['User Full Name'] === empName && (users[i].vendor === vendorName || key === vendorName || vendorName.includes(key))) {
+        users.splice(i, 1);
+        saveData();
+        openEmployee(empName);
+        toast(`Removed ${empName} from ${vendorName}`);
+        return;
+      }
+    }
+  }
+}
+
+// ============ ADD VENDOR ============
+function addAccessRow() {
+  const div = document.createElement('div');
+  div.className = 'form-grid'; div.style.marginBottom = '8px';
+  div.innerHTML = `<div class="form-group"><label>Employee Name</label><input placeholder="Full name" class="ar-name"></div>
+    <div class="form-group"><label>Access Level</label><select class="ar-level"><option>Admin</option><option>User</option><option>Read-only</option><option>Owner</option></select></div>`;
+  document.getElementById('accessRows').appendChild(div);
+}
 function addVendor(e) {
   e.preventDefault();
   const vendor = {
-    vendor: document.getElementById('av-vendor').value,
-    purpose: document.getElementById('av-purpose').value,
-    category: document.getElementById('av-category').value,
-    owner: document.getElementById('av-owner').value,
-    department: document.getElementById('av-dept').value,
-    subType: document.getElementById('av-subtype').value,
-    monthlyCost: parseFloat(document.getElementById('av-monthly').value) || null,
-    annualCost: parseFloat(document.getElementById('av-annual').value) || null,
-    contractStart: document.getElementById('av-start').value || null,
-    renewalDate: document.getElementById('av-renewal').value || null,
-    autoRenew: document.getElementById('av-autorenew').value,
-    soc2: document.getElementById('av-soc2').value,
-    supportPhone: document.getElementById('av-phone').value,
-    supportEmail: document.getElementById('av-email').value,
-    contractLink: document.getElementById('av-link').value,
-    notes: document.getElementById('av-notes').value,
-    status: 'OK',
-    approvalStatus: 'Pending',
+    vendor: document.getElementById('av-vendor').value, purpose: document.getElementById('av-purpose').value,
+    category: document.getElementById('av-category').value, owner: document.getElementById('av-owner').value,
+    department: document.getElementById('av-dept').value, subType: document.getElementById('av-subtype').value,
+    monthlyCost: parseFloat(document.getElementById('av-monthly').value)||null, annualCost: parseFloat(document.getElementById('av-annual').value)||null,
+    contractStart: document.getElementById('av-start').value||null, renewalDate: document.getElementById('av-renewal').value||null,
+    autoRenew: document.getElementById('av-autorenew').value, soc2: document.getElementById('av-soc2').value,
+    supportPhone: document.getElementById('av-phone').value, supportEmail: document.getElementById('av-email').value,
+    contractLink: document.getElementById('av-link').value, notes: document.getElementById('av-notes').value, status:'OK', approvalStatus:'Pending',
   };
-
-  // Gather access rows
   const accessUsers = [];
   document.querySelectorAll('#accessRows .form-grid').forEach(row => {
     const name = row.querySelector('.ar-name').value.trim();
-    const level = row.querySelector('.ar-level').value;
-    if (name) {
-      accessUsers.push({
-        'User Full Name': name,
-        'Access Level': level,
-        'Active? (Yes/No)': 'Yes',
-        'Date Access Granted': new Date().toISOString().split('T')[0],
-        vendor: vendor.vendor,
-      });
-    }
+    if (name) accessUsers.push({'User Full Name':name,'Access Level':row.querySelector('.ar-level').value,'Active? (Yes/No)':'Yes','Date Access Granted':new Date().toISOString().split('T')[0],vendor:vendor.vendor});
   });
-
-  // Add to data
   DATA.vendors.push(vendor);
-  if (accessUsers.length) {
-    DATA.accessByVendor[vendor.vendor] = accessUsers;
-    accessUsers.forEach(u => {
-      const name = u['User Full Name'];
-      if (!DATA.employees[name]) DATA.employees[name] = [];
-      DATA.employees[name].push({
-        vendor: vendor.vendor,
-        accessLevel: u['Access Level'],
-        active: 'Yes',
-        dateGranted: u['Date Access Granted'],
-      });
-    });
+  if (accessUsers.length) DATA.accessByVendor[vendor.vendor] = accessUsers;
+  saveData(); renderVendors(); buildStats();
+  document.getElementById('addVendorForm').reset(); document.getElementById('accessRows').innerHTML = '';
+  toast(`"${vendor.vendor}" added!`); showPage('vendors');
+}
+
+// ============ HELPERS ============
+function findAccessData(vendorName) {
+  for (const [k, users] of Object.entries(DATA.accessByVendor)) {
+    if (k === vendorName || (users[0]?.vendor||'') === vendorName || k.includes(vendorName) || vendorName.includes(k)) return users;
   }
-
-  // Re-render
-  renderVendors();
-  renderEmployees();
-  buildStats();
-
-  // Reset form
-  document.getElementById('addVendorForm').reset();
-  document.getElementById('accessRows').innerHTML = '';
-  accessRowCount = 0;
-
-  toast(`"${vendor.vendor}" added successfully!`);
-  showPage('vendors');
+  const nl = vendorName.toLowerCase();
+  for (const [k, users] of Object.entries(DATA.accessByVendor)) {
+    if (nl.includes(k.toLowerCase()) || k.toLowerCase().includes(nl.split(' ')[0].toLowerCase())) return users;
+  }
+  return null;
 }
-
-// ============ EXPORT ============
+function findAccessKey(vendorName) {
+  for (const k of Object.keys(DATA.accessByVendor)) {
+    if (k === vendorName || k.includes(vendorName) || vendorName.includes(k)) return k;
+  }
+  const nl = vendorName.toLowerCase();
+  for (const k of Object.keys(DATA.accessByVendor)) {
+    if (nl.includes(k.toLowerCase()) || k.toLowerCase().includes(nl.split(' ')[0].toLowerCase())) return k;
+  }
+  return null;
+}
+function findAccessKeyForEmployeeVendor(empName, vendorName) {
+  for (const [k, users] of Object.entries(DATA.accessByVendor)) {
+    if (users.some(u => u['User Full Name'] === empName && (u.vendor === vendorName || k === vendorName))) return k;
+  }
+  return null;
+}
+function findUserIndexInVendor(vendorKey, empName) {
+  if (!vendorKey || !DATA.accessByVendor[vendorKey]) return -1;
+  return DATA.accessByVendor[vendorKey].findIndex(u => u['User Full Name'] === empName);
+}
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function esc(s) { if (s==null) return ''; const d=document.createElement('div'); d.textContent=String(s); return d.innerHTML; }
+function fmtCost(v) { const n=parseFloat(v); return isNaN(n)?'—':'$'+n.toLocaleString('en',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function toast(msg) { const t=document.getElementById('toast'); t.textContent=msg; t.style.display='block'; setTimeout(()=>t.style.display='none',3000); }
 function exportCSV() {
-  const headers = ['Vendor','Purpose','Category','Owner','Department','Type','Monthly Cost','Annual Cost','Status','Auto-Renew','SOC 2'];
-  const rows = DATA.vendors.map(v => [
-    v.vendor, v.purpose, v.category, v.owner, v.department, v.subType,
-    v.monthlyCost, v.annualCost, v.status, v.autoRenew, v.soc2
-  ].map(x => `"${String(x||'').replace(/"/g,'""')}"`).join(','));
-
-  const csv = [headers.join(','), ...rows].join('\n');
-  const blob = new Blob([csv], {type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'revotext_vendors_' + new Date().toISOString().split('T')[0] + '.csv';
-  a.click();
+  const h=['Vendor','Purpose','Category','Owner','Department','Type','Monthly','Annual','Status','Auto-Renew','SOC 2'];
+  const rows=DATA.vendors.map(v=>[v.vendor,v.purpose,v.category,v.owner,v.department,v.subType,v.monthlyCost,v.annualCost,v.status,v.autoRenew,v.soc2].map(x=>`"${String(x||'').replace(/"/g,'""')}"`).join(','));
+  const blob=new Blob([h.join(',')+'\n'+rows.join('\n')],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revotext_vendors_'+new Date().toISOString().split('T')[0]+'.csv'; a.click();
+}
+function downloadJSON() {
+  const blob=new Blob([JSON.stringify(DATA,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='revotext_vendor_data_'+new Date().toISOString().split('T')[0]+'.json'; a.click();
 }
 
-// ============ UTILS ============
-function esc(s) {
-  if (s === null || s === undefined) return '';
-  const d = document.createElement('div');
-  d.textContent = String(s);
-  return d.innerHTML;
-}
+// ============ RESET DATA ============
+// Uncomment to reset: localStorage.removeItem('revotext_vendor_data'); location.reload();
 
-function fmtCost(v) {
-  const n = parseFloat(v);
-  if (isNaN(n)) return '—';
-  return '$' + n.toLocaleString('en', {minimumFractionDigits:2, maximumFractionDigits:2});
-}
-
-function toast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 3000);
-}
-
-// ============ INIT ============
 loadData();
 </script>
 </body>
